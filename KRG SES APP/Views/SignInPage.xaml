@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KRG_SES_APP.Views.SignInPage"
+             NavigationPage.HasNavigationBar="False"
+             Style="{StaticResource standardContentPage}">
+
+    <ContentView
+        Style="{StaticResource standardContentView}">
+        <StackLayout>
+            <Label Text="Sign In System" Style="{StaticResource pageHeaderLabel}"/>
+            
+            <StackLayout x:Name="LoggedOutStack" VerticalOptions="CenterAndExpand" Spacing="100">
+                <Label Text="Signed Out" HorizontalOptions="Center" FontSize="Large"/>
+                <Picker x:Name="SignInCatagoryPicker" Title="Attendance Catagory" SelectedIndexChanged="OnSignInCatagoryChange"/>
+                <Button Text="Sign In" Style="{StaticResource button}" Clicked="OnSignIn" HorizontalOptions="Center" x:Name="SignInButton"/>
+            </StackLayout>
+            <StackLayout x:Name="LoggedInStack" VerticalOptions="CenterAndExpand" Spacing="100">
+                <Label Text="Signed In" HorizontalOptions="Center" FontSize="Large"/>
+                <Button Text="Sign Out" Style="{StaticResource button}" Clicked="OnSignOut" HorizontalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView>
+    
+</ContentPage>

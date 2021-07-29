@@ -2,7 +2,32 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KRG_SES_APP.App">
+    
     <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="button" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#1687A7"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius" Value="20"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
 
+            <Style x:Key="standardContentPage" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="#276678"/>
+                <Setter Property="Padding" Value="20"/>
+            </Style>
+
+            <Style x:Key="standardContentView" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="#F6F5F5"/>
+                <Setter Property="Padding" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="pageHeaderLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

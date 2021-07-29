@@ -11,7 +11,7 @@ namespace KRG_SES_APP
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new WelcomePage());
+            MainPage = new NavigationPage(new HomePage());
         }
 
         protected override void OnStart()

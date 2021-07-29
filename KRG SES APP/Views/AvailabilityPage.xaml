@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="KRG_SES_APP.Views.AvailabilityPage">
-    <StackLayout>
-        <Button Text="Back" Clicked="BackButtonClicked"/>
-        <ContentView x:Name="GridView"/>
-    </StackLayout>
+             x:Class="KRG_SES_APP.Views.AvailabilityPage"
+             NavigationPage.HasNavigationBar="False"
+             Style="{StaticResource standardContentPage}">
+    <ContentView
+        Style="{StaticResource standardContentView}">
+        <StackLayout VerticalOptions="Fill" Spacing="50">
+            <Label Text="Availability" Style="{StaticResource pageHeaderLabel}"/>
+            <ContentView x:Name="GridView"/>
+        </StackLayout>
+    </ContentView>
 </ContentPage>

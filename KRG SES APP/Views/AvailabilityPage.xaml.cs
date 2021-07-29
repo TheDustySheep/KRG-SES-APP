@@ -33,7 +33,7 @@ namespace KRG_SES_APP.Views
             AddRow(grid, "Sat", 5);
             AddRow(grid, "Sun", 6);
 
-            GridView.Content = grid;
+            GridView.Content= grid;
         }
 
         private void AddRow(Grid grid, string dayName, int row)

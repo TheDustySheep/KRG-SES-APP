@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KRG_SES_APP.Views.AccountPage"
+             NavigationPage.HasNavigationBar="False"
+             Style="{StaticResource standardContentPage}">
+
+    <ContentView 
+        Style="{StaticResource standardContentView}"
+        x:Name="GridView">
+        <StackLayout>
+            <Label Text="Account" Style="{StaticResource pageHeaderLabel}"/>
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection Title="SES ID">
+                        <EntryCell Label="SES ID" Placeholder="400 Number" Keyboard="Numeric"/>
+                    </TableSection>
+                    
+                    <TableSection Title="Name">
+                        <EntryCell Label="First Name" Placeholder="John" Keyboard="Chat"/>
+                        <EntryCell Label="Last Name" Placeholder="Doe" Keyboard="Chat"/>
+                    </TableSection>
+                    
+                    <TableSection Title="General Qualifications">
+                        <SwitchCell Text="Chainsaw Cross Cut"/>
+                        <SwitchCell Text="Storm Water Damage"/>
+                    </TableSection>
+
+                    <TableSection Title="Vehicle Qualifications">
+                        <SwitchCell Text="Approved C Class License"/>
+                        <SwitchCell Text="Approved LR Class License"/>
+                        <SwitchCell Text="KRG 31 Endorsed"/>
+                        <SwitchCell Text="Drive Operational Vehicles"/>
+                    </TableSection>
+
+                    <TableSection Title="Flood Rescue Qualifications">
+                        <SwitchCell Text="Flood Rescue Awareness"/>
+                        <SwitchCell Text="Flood Rescue Level 1"/>
+                        <SwitchCell Text="Flood Rescue Level 2"/>
+                        <SwitchCell Text="Flood Rescue Level 3"/>
+                    </TableSection>
+
+                    <TableSection Title="Advanced Qualifications">
+                        <SwitchCell Text="PIARO"/>
+                        <SwitchCell Text="Chainsaw Felling"/>
+                        <SwitchCell Text="Vertical Rescue"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ContentView>
+</ContentPage>
