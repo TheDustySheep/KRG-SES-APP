@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KRG_SES_APP.Views.WelcomePage"
+             BackgroundColor="#014785">
+
+    <ContentPage.Content>
+        <StackLayout 
+            VerticalOptions="StartAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            Spacing="200"
+            Margin="20, 100, 20, 0">
+
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                Spacing="20">
+                <Label 
+                    FontSize="Large" 
+                    Text="Ku-Ring-Gai SES"/>
+                <Image 
+                    Source="https://d2kkk21akmg8gz.cloudfront.net/images/icons/ses-logo.png" 
+                    BackgroundColor="White"
+                    Opacity="100"/>
+            </StackLayout>
+
+            <Button 
+                Text="Availability"
+                Clicked="OnAvailabilityButtonClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
