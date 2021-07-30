@@ -23,6 +23,19 @@ namespace KRG_SES_APP.Views
             new AttendanceCatagory(){ Id = 6, Name = "Maintance"},
         };
 
+        CurrentAttendance currentAttendance;
+
+        public string activeCatagory => $"Catagory: {(currentAttendance == null ? new AttendanceCatagory() : currentAttendance.catagory).Name}";
+        public string timeSpan => $"Time: {GetTimeSpanString()}";
+
+        private string GetTimeSpanString()
+        {
+            DateTime start = currentAttendance == null ? DateTime.Now : currentAttendance.StartTime;
+            TimeSpan span = DateTime.Now - start;
+
+            return $"Hours: {span.TotalHours} Minutes: {span.Minutes} Seconds: {span.Seconds}";
+        }
+
         private bool _loggedIn;
         public bool loggedIn
         {
@@ -38,30 +51,39 @@ namespace KRG_SES_APP.Views
         {
             InitializeComponent();
 
-            loggedIn = true;
-
-            ValidateSignInInputs();
+            loggedIn = false;
 
             foreach (var item in GetCatagories())
             {
                 SignInCatagoryPicker.Items.Add(item.Name);
             }
+
+            BindingContext = this;
         }
 
         private async void OnSignOut(object sender, EventArgs e)
         {
             loggedIn = false;
+
+            await DisplayAlert("Signed Out", $"Successfully Signed Out", "Continue");
+
             await Navigation.PopAsync();
         }
-        
+
         private async void OnSignIn(object sender, EventArgs e)
         {
-            if (ValidateSignInInputs())
+            if (SignInInputsValid)
             {
                 loggedIn = true;
 
                 var catName = SignInCatagoryPicker.Items[SignInCatagoryPicker.SelectedIndex];
                 var catagory = GetCatagories().Single(cat => cat.Name == catName);
+
+                currentAttendance = new CurrentAttendance()
+                {
+                    catagory = catagory,
+                    StartTime = DateTime.Now,
+                };
 
                 await DisplayAlert("Signed In", $"Successfully Signed In for {catagory.Name}", "Continue");
 
@@ -69,19 +91,8 @@ namespace KRG_SES_APP.Views
             }
         }
 
-        private void OnSignInCatagoryChange(object sender, EventArgs e)
-        {
-            ValidateSignInInputs();
-        }
-
-        private bool ValidateSignInInputs()
-        {
-            bool valid = SignInCatagoryPicker.SelectedIndex >= 0;
-
-            SignInButton.IsEnabled = valid;
-
-            return valid;
-        }
+        private bool SignInInputsValid =>
+            SignInCatagoryPicker.SelectedIndex >= 0;
 
         private void UpdateStacksVisible()
         {

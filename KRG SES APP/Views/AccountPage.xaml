@@ -13,37 +13,41 @@
             <TableView Intent="Form">
                 <TableRoot>
                     <TableSection Title="SES ID">
-                        <EntryCell Label="SES ID" Placeholder="400 Number" Keyboard="Numeric"/>
+                        <EntryCell Label="SES ID" Placeholder="400 Number" Keyboard="Numeric" Text="{Binding MemberID, Mode=TwoWay}"/>
                     </TableSection>
                     
                     <TableSection Title="Name">
-                        <EntryCell Label="First Name" Placeholder="John" Keyboard="Chat"/>
-                        <EntryCell Label="Last Name" Placeholder="Doe" Keyboard="Chat"/>
+                        <EntryCell Label="First Name" Placeholder="John" Keyboard="Chat" Text="{Binding FirstName, Mode=TwoWay}"/>
+                        <EntryCell Label="Last Name"  Placeholder="Doe"  Keyboard="Chat" Text="{Binding LastName, Mode=TwoWay}"/>
                     </TableSection>
                     
                     <TableSection Title="General Qualifications">
-                        <SwitchCell Text="Chainsaw Cross Cut"/>
-                        <SwitchCell Text="Storm Water Damage"/>
+                        <SwitchCell Text="Job Ready" On="{Binding Qual_General_JR, Mode=TwoWay}"/>
+                        <SwitchCell Text="Storm Water Damage" On="{Binding Qual_General_SWDO, Mode=TwoWay}"/>
+                    </TableSection>
+
+                    <TableSection Title="Chainsaw Qualifications">
+                        <SwitchCell Text="Chainsaw Cross Cut" On="{Binding Qual_Chainsaw_CC, Mode=TwoWay}"/>
+                        <SwitchCell Text="Chainsaw Felling" On="{Binding Qual_Chainsaw_FELL, Mode=TwoWay}"/>
                     </TableSection>
 
                     <TableSection Title="Vehicle Qualifications">
-                        <SwitchCell Text="Approved C Class License"/>
-                        <SwitchCell Text="Approved LR Class License"/>
-                        <SwitchCell Text="KRG 31 Endorsed"/>
-                        <SwitchCell Text="Drive Operational Vehicles"/>
+                        <SwitchCell Text="Approved C Class License" On="{Binding Qual_Drive_C, Mode=TwoWay}"/>
+                        <SwitchCell Text="Approved LR Class License" On="{Binding Qual_Drive_LR, Mode=TwoWay}"/>
+                        <SwitchCell Text="KRG 31 Endorsed" On="{Binding Qual_Drive_KRG31, Mode=TwoWay}"/>
+                        <SwitchCell Text="Drive Operational Vehicles" On="{Binding Qual_Drive_DOV, Mode=TwoWay}"/>
                     </TableSection>
 
                     <TableSection Title="Flood Rescue Qualifications">
-                        <SwitchCell Text="Flood Rescue Awareness"/>
-                        <SwitchCell Text="Flood Rescue Level 1"/>
-                        <SwitchCell Text="Flood Rescue Level 2"/>
-                        <SwitchCell Text="Flood Rescue Level 3"/>
+                        <SwitchCell Text="Flood Rescue Awareness" On="{Binding Qual_Flood_A, Mode=TwoWay}"/>
+                        <SwitchCell Text="Flood Rescue Level 1" On="{Binding Qual_Flood_1, Mode=TwoWay}"/>
+                        <SwitchCell Text="Flood Rescue Level 2" On="{Binding Qual_Flood_2, Mode=TwoWay}"/>
+                        <SwitchCell Text="Flood Rescue Level 3" On="{Binding Qual_Flood_3, Mode=TwoWay}"/>
                     </TableSection>
 
-                    <TableSection Title="Advanced Qualifications">
-                        <SwitchCell Text="PIARO"/>
-                        <SwitchCell Text="Chainsaw Felling"/>
-                        <SwitchCell Text="Vertical Rescue"/>
+                    <TableSection Title="Rescue Qualifications">
+                        <SwitchCell Text="PIARO" On="{Binding Qual_Rescue_PIARO, Mode=TwoWay}"/>
+                        <SwitchCell Text="Vertical Rescue" On="{Binding Qual_Rescue_VR, Mode=TwoWay}"/>
                     </TableSection>
                 </TableRoot>
             </TableView>

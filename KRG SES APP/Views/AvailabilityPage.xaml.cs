@@ -16,39 +16,57 @@ namespace KRG_SES_APP.Views
         {
             InitializeComponent();
 
-            var grid = new Grid();
+            var grid = GridView;
 
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = 40 });
+            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Star });
+            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
+            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
+            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
+            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
 
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = 40 });
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = 40 });
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = 40 });
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = 40 });
+            grid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
 
-            AddRow(grid, "Mon", 0);
-            AddRow(grid, "Tue", 1);
-            AddRow(grid, "Wed", 2);
-            AddRow(grid, "Thu", 3);
-            AddRow(grid, "Fri", 4);
-            AddRow(grid, "Sat", 5);
-            AddRow(grid, "Sun", 6);
+            AddHeader(grid);
 
-            GridView.Content= grid;
+            AddRow(grid, "Mon", 1);
+            AddRow(grid, "Tue", 2);
+            AddRow(grid, "Wed", 3);
+            AddRow(grid, "Thu", 4);
+            AddRow(grid, "Fri", 5);
+            AddRow(grid, "Sat", 6);
+            AddRow(grid, "Sun", 7);
+        }
+
+        private void AddHeader(Grid grid)
+        {
+            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Day"                 }, 0, 0);
+            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Morning\n6am-12pm"   }, 1, 0);
+            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Afternoon\n12pm-6pm" }, 2, 0);
+            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Evening\n6pm-11pm"   }, 3, 0);
+            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Overnight\n11pm-6am" }, 4, 0);
         }
 
         private void AddRow(Grid grid, string dayName, int row)
         {
             grid.Children.Add(new Label()  { Text = dayName }, 0, row);
-            grid.Children.Add(new Button() { Command = new Command(() => DisplayAlert("TEST", "Message", "Cancel")) }, 1, row);
-            grid.Children.Add(new Button() { }, 2, row);
-            grid.Children.Add(new Button() { }, 3, row);
-            grid.Children.Add(new Button() { }, 4, row);
-            grid.Children.Add(new Label()  { Text = $"Comments" }, 5, row);
+            grid.Children.Add(GenerateCheckBox(0, row), 1, row);
+            grid.Children.Add(GenerateCheckBox(1, row), 2, row);
+            grid.Children.Add(GenerateCheckBox(2, row), 3, row);
+            grid.Children.Add(GenerateCheckBox(3, row), 4, row);
         }
 
-        private async void BackButtonClicked(object sender, EventArgs e)
+        private View GenerateCheckBox(int column, int row)
         {
-            await Navigation.PopAsync();
+            CheckBox checkBox = new CheckBox()
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
+            };
+            //checkBox.CheckedChanged += async (object sender, CheckedChangedEventArgs e) => 
+            //{
+            //    await DisplayAlert("Clicked Checkbox", $"Col: {column}\nRow {row}", "Continue");
+            //};
+            return checkBox;
         }
     }
 }

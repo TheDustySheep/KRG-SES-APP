@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KRG_SES_APP.Views.MessagesPage"
+             NavigationPage.HasNavigationBar="False"      
+             Style="{StaticResource standardContentPage}">
+
+    <ContentView 
+        Style="{StaticResource standardContentView}">
+
+        <StackLayout VerticalOptions="Fill" Spacing="50">
+            <Label Text="Availability" Style="{StaticResource pageHeaderLabel}"/>
+            <ListView x:Name="listView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <AbsoluteLayout>
+                                <RelativeLayout
+                                    AbsoluteLayout.LayoutBounds="0, 0, 1, 80"
+                                    AbsoluteLayout.LayoutFlags="WidthProportional">
+                                    <BoxView
+                                        RelativeLayout.WidthConstraint="{ConstraintExpression 
+                                                Type=RelativeToParent,
+                                                Property=Width,
+                                                Factor=1}"
+                                        RelativeLayout.HeightConstraint="{ConstraintExpression
+                                                Type=RelativeToParent,
+                                                Property=Height,
+                                                Factor=1}"/>
+                                    <StackLayout
+                                        RelativeLayout.WidthConstraint="{ConstraintExpression 
+                                                Type=RelativeToParent,
+                                                Property=Width,
+                                                Factor=0.2}"                                         
+                                        RelativeLayout.HeightConstraint="{ConstraintExpression
+                                                Type=RelativeToParent,
+                                                Property=Height,
+                                                Factor=1}">
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            FontSize="Small"
+                                            Text="{Binding CatagoryName}"
+                                            VerticalOptions="Start"/>
+                                        <Image
+                                            Source="{Binding CatagoryIcon}"
+                                            Aspect="AspectFit"
+                                            VerticalOptions="EndAndExpand"
+                                            HorizontalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        RelativeLayout.WidthConstraint="{ConstraintExpression 
+                                                Type=RelativeToParent,
+                                                Property=Width,
+                                                Factor=0.75}"                                         
+                                        RelativeLayout.HeightConstraint="{ConstraintExpression
+                                                Type=RelativeToParent,
+                                                Property=Height,
+                                                Factor=1}"
+                                        RelativeLayout.XConstraint="{ConstraintExpression
+                                                Type=RelativeToParent,
+                                                Property=Width,
+                                                Factor=0.25}">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Header}" HorizontalOptions="StartAndExpand" VerticalOptions="Start"/>
+                                            <Label Text="{Binding TimeSinceCreated}" HorizontalOptions="End" VerticalOptions="Start"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Body}" HorizontalOptions="StartAndExpand" VerticalOptions="End"/>
+                                            <Button Text="Open..." Style="{StaticResource buttonStandard}" HorizontalOptions="End"  VerticalOptions="End"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </RelativeLayout>
+                            </AbsoluteLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentView>
+</ContentPage>

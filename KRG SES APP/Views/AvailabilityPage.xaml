@@ -8,7 +8,9 @@
         Style="{StaticResource standardContentView}">
         <StackLayout VerticalOptions="Fill" Spacing="50">
             <Label Text="Availability" Style="{StaticResource pageHeaderLabel}"/>
-            <ContentView x:Name="GridView"/>
+            <Grid x:Name="GridView" HorizontalOptions="FillAndExpand" VerticalOptions="Fill"/>
+            <Editor Placeholder="Comments" VerticalOptions="FillAndExpand"/>
+            <Button Text="Submit" Style="{StaticResource buttonImportant}"/>
         </StackLayout>
     </ContentView>
 </ContentPage>

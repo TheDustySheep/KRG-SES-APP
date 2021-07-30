@@ -5,9 +5,16 @@
     
     <Application.Resources>
         <ResourceDictionary>
-            <Style x:Key="button" TargetType="Button">
+            <Style x:Key="buttonImportant" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#1687A7"/>
                 <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius" Value="7"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="buttonStandard" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#D3E0EA"/>
+                <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="BorderRadius" Value="20"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>

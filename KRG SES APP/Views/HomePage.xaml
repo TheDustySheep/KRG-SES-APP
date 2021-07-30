@@ -9,7 +9,7 @@
         <StackLayout 
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="CenterAndExpand"
-            Spacing="50">
+            Spacing="20">
 
             <StackLayout
                 HorizontalOptions="CenterAndExpand"
@@ -25,28 +25,60 @@
 
             <Label 
                 x:Name="WelcomeNameLabel" 
-                Text="Welcome" 
+                Text="{Binding WelcomeText}"
                 FontSize="Medium"
                 HorizontalOptions="Center"/>
 
-            <StackLayout>
+            <Grid>
                 <Button 
+                        Grid.Row="0"
+                        Grid.Column="0"
                         Text="Availability"
-                        Style="{StaticResource button}"
+                        Style="{StaticResource buttonImportant}"
                         Clicked="OnAvailabilityButtonClicked"/>
                 <Button 
+                        Grid.Row="0"
+                        Grid.Column="1"
                         Text="Sign In System"
-                        Style="{StaticResource button}"
+                        Style="{StaticResource buttonImportant}"
                         Clicked="OnSignInButtonClicked"/>
                 <Button 
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Messages"
+                        Style="{StaticResource buttonImportant}"
+                        Clicked="OnMessagesButtonClicked"/>
+                <Button 
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="Links"
+                        Style="{StaticResource buttonImportant}"
+                        Clicked="OnLinksButtonClicked"/>
+                <Button 
+                        Grid.Row="2"
+                        Grid.Column="0"
                         Text="Profile"
-                        Style="{StaticResource button}"
+                        Style="{StaticResource buttonStandard}"
                         Clicked="OnAccountButtonClicked"/>
                 <Button 
+                        Grid.Row="2"
+                        Grid.Column="1"
                         Text="Settings"
-                        Style="{StaticResource button}"
+                        Style="{StaticResource buttonStandard}"
                         Clicked="OnSettingsButtonClicked"/>
-            </StackLayout>
+                <Button 
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Text="Credits"
+                        Style="{StaticResource buttonStandard}"
+                        Clicked="OnCreditsButtonClicked"/>
+                <Button 
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Text="Report Bugs"
+                        Style="{StaticResource buttonStandard}"
+                        Clicked="OnReportBugsButtonClicked"/>
+            </Grid>
         </StackLayout>
     </ContentView>
 </ContentPage>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KRG_SES_APP.Views.Credits"
+             NavigationPage.HasNavigationBar="False"      
+             Style="{StaticResource standardContentPage}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="labelHeader" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+            <Style x:Key="labelBody" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+                <Setter Property="FontSize" Value="Small"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentView 
+        Style="{StaticResource standardContentView}">
+        <StackLayout Spacing="20">
+            <Label Text="Credits" Style="{StaticResource pageHeaderLabel}" VerticalOptions="Start"/>
+            <StackLayout Spacing="40">
+                <StackLayout>
+                    <Label Style="{StaticResource labelHeader}" Text="Sean Edwards"/>
+                    <Label Style="{StaticResource labelBody}" Text="Lead Programmer"/>
+                    <Label Style="{StaticResource labelBody}" Text="Lead Developer"/>
+                    <Label Style="{StaticResource labelBody}" Text="Lead Designer"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Style="{StaticResource labelHeader}" Text="Oliver Pitman"/>
+                    <Label Style="{StaticResource labelBody}" Text="Technical Advisor"/>
+                    <Label Style="{StaticResource labelBody}" Text="Data Entry"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Style="{StaticResource labelHeader}" Text="Xin Hui (Ashley) Eng "/>
+                    <Label Style="{StaticResource labelBody}" Text="Database Advisor"/>
+                    <Label Style="{StaticResource labelBody}" Text="SQL Advisor"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentView>
+</ContentPage>
