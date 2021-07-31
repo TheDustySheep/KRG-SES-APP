@@ -9,18 +9,12 @@
         Style="{StaticResource standardContentView}">
         <StackLayout>
             <Label Text="Sign In System" Style="{StaticResource pageHeaderLabel}"/>
-            
-            <StackLayout x:Name="LoggedOutStack" VerticalOptions="CenterAndExpand" Spacing="100">
-                <Label Text="Signed Out" HorizontalOptions="Center" FontSize="Large"/>
-                <Picker x:Name="SignInCatagoryPicker" Title="Attendance Catagory"/>
-                <Button Text="Sign In" Style="{StaticResource buttonImportant}" Clicked="OnSignIn" HorizontalOptions="Center" IsEnabled="{Binding SignInInputsValid}"/>
-            </StackLayout>
-            
-            <StackLayout x:Name="LoggedInStack" VerticalOptions="CenterAndExpand" Spacing="100">
-                <Label Text="Signed In" HorizontalOptions="Center" FontSize="Large"/>
-                <Label Text="{Binding activeCatagory}"/>
-                <Label Text="{Binding timeSpan}"/>
-                <Button Text="Sign Out" Style="{StaticResource buttonImportant}" Clicked="OnSignOut" HorizontalOptions="Center"/>
+            <StackLayout>
+                <Label x:Name="LastSignIn" Text="Refresh For Last Update"/>
+                <StackLayout x:Name="LoggedOutStack" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Sign In" Style="{StaticResource buttonImportant}" Clicked="OnSignIn" HorizontalOptions="Center"/>
+                    <Button Text="Refresh" Style="{StaticResource buttonImportant}" Clicked="OnRefresh" HorizontalOptions="Center"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentView>

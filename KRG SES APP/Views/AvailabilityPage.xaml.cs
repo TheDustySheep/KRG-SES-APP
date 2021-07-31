@@ -18,41 +18,31 @@ namespace KRG_SES_APP.Views
 
             var grid = GridView;
 
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Star });
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
-
-            grid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
-
             AddHeader(grid);
 
-            AddRow(grid, "Mon", 1);
-            AddRow(grid, "Tue", 2);
-            AddRow(grid, "Wed", 3);
-            AddRow(grid, "Thu", 4);
-            AddRow(grid, "Fri", 5);
-            AddRow(grid, "Sat", 6);
-            AddRow(grid, "Sun", 7);
+            AddRow(grid, "Monday", 1);
+            AddRow(grid, "Tueday", 2);
+            AddRow(grid, "Wednesday", 3);
+            AddRow(grid, "Thursday", 4);
+            AddRow(grid, "Friday", 5);
+            AddRow(grid, "Saturday", 6);
+            AddRow(grid, "Sunday", 7);
         }
 
         private void AddHeader(Grid grid)
         {
-            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Day"                 }, 0, 0);
-            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Morning\n6am-12pm"   }, 1, 0);
-            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Afternoon\n12pm-6pm" }, 2, 0);
-            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Evening\n6pm-11pm"   }, 3, 0);
-            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Overnight\n11pm-6am" }, 4, 0);
+            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Weekday"}, 0, 0);
+            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Day"    }, 1, 0);
+            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Night"  }, 2, 0);
+            grid.Children.Add(new Label() { HorizontalOptions = LayoutOptions.Center, Text = "Comments" }, 3, 0);
         }
 
         private void AddRow(Grid grid, string dayName, int row)
         {
-            grid.Children.Add(new Label()  { Text = dayName }, 0, row);
+            grid.Children.Add(new Label()  { Text = dayName, VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Center }, 0, row);
             grid.Children.Add(GenerateCheckBox(0, row), 1, row);
             grid.Children.Add(GenerateCheckBox(1, row), 2, row);
-            grid.Children.Add(GenerateCheckBox(2, row), 3, row);
-            grid.Children.Add(GenerateCheckBox(3, row), 4, row);
+            grid.Children.Add(new Editor() { Placeholder = "Comments" }, 3, row);
         }
 
         private View GenerateCheckBox(int column, int row)

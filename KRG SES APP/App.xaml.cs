@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using KRG_SES_APP.Models.SignInSystem;
+using KRG_SES_APP.Services;
 
 namespace KRG_SES_APP
 {
@@ -20,7 +21,13 @@ namespace KRG_SES_APP
         public App()
         {
             InitializeComponent();
+
             MainPage = new NavigationPage(new HomePage());
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
         }
 
         public UserProfile UserProfile

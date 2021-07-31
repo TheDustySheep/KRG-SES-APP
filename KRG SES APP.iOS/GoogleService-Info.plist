@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>838683655617-cujqfoi7ngcupo6srgqkekcl2ckgmnao.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.838683655617-cujqfoi7ngcupo6srgqkekcl2ckgmnao</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDQIrPZsagy4QuQUdpTeO-Z5EQ6hz9lCjo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>838683655617</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.companyname.KRGSESAPP</string>
+	<key>PROJECT_ID</key>
+	<string>krg-ses-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>krg-ses-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:838683655617:ios:f4a822124cd3088e730340</string>
+	<key>DATABASE_URL</key>
+	<string>https://krg-ses-app-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>

@@ -18,7 +18,7 @@
                 <Setter Property="BorderRadius" Value="20"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
-
+            
             <Style x:Key="standardContentPage" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="#276678"/>
                 <Setter Property="Padding" Value="20"/>

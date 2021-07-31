@@ -6,11 +6,31 @@
              Style="{StaticResource standardContentPage}">
     <ContentView
         Style="{StaticResource standardContentView}">
-        <StackLayout VerticalOptions="Fill" Spacing="50">
+        <StackLayout>
             <Label Text="Availability" Style="{StaticResource pageHeaderLabel}"/>
-            <Grid x:Name="GridView" HorizontalOptions="FillAndExpand" VerticalOptions="Fill"/>
-            <Editor Placeholder="Comments" VerticalOptions="FillAndExpand"/>
-            <Button Text="Submit" Style="{StaticResource buttonImportant}"/>
+            <StackLayout VerticalOptions="Fill">
+            
+                <Grid x:Name="GridView" HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                <Editor Placeholder="General Comments" VerticalOptions="FillAndExpand"/>
+                <Button Text="Submit" Style="{StaticResource buttonImportant}"/>
+            </StackLayout>
         </StackLayout>
     </ContentView>
 </ContentPage>
