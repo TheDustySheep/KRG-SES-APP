@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace KRG_SES_APP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreditsPage : ContentPage
+    public partial class LinksPage : ContentPage
     {
-        public CreditsPage()
+        public LinksPage()
         {
             InitializeComponent();
         }

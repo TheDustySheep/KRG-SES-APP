@@ -9,12 +9,49 @@
         Style="{StaticResource standardContentView}">
         <StackLayout>
             <Label Text="Sign In System" Style="{StaticResource pageHeaderLabel}"/>
-            <StackLayout>
-                <Label x:Name="LastSignIn" Text="Refresh For Last Update"/>
-                <StackLayout x:Name="LoggedOutStack" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                    <Button Text="Sign In" Style="{StaticResource buttonImportant}" Clicked="OnSignIn" HorizontalOptions="Center"/>
-                    <Button Text="Refresh" Style="{StaticResource buttonImportant}" Clicked="OnRefresh" HorizontalOptions="Center"/>
+
+            <StackLayout VerticalOptions="CenterAndExpand" IsEnabled="False">
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsLoggedIn}" Value="False">
+                        <Setter Property="IsEnabled" Value="True"/>
+                    </DataTrigger>
+                </StackLayout.Triggers>
+                <Label FontSize="Large" Text="Currently Signed Out" HorizontalOptions="Center"/>
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Picker x:Name="SignInCatagoryPicker"
+                        Title="Catagories" 
+                        HorizontalOptions="CenterAndExpand"
+                        SelectedItem="{Binding SelectedCatagory, Mode=TwoWay}"/>
+                    <Button 
+                        Text="Sign In"     
+                        Style="{StaticResource buttonImportant}" 
+                        Command="{Binding OnSignInCommand}"
+                        HorizontalOptions="Center"/>
                 </StackLayout>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="CenterAndExpand" IsEnabled="{Binding IsLoggedIn}">
+                <Label FontSize="Large" Text="Currently Signed In" HorizontalOptions="Center"/>
+                <Grid Margin="50, 0, 50, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Signed in at:"/>
+                    <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="End" Text="{Binding SignedInTimeString}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Signed in for:"/>
+                    <Label Grid.Row="1" Grid.Column="1" HorizontalOptions="End" Text="{Binding SignedInTimeSpanString}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Catagory:"/>
+                    <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="End" Text="{Binding SignedInCatagoryString}"/>
+                </Grid>
+                <Button
+                    Text="Sign Out" 
+                    Style="{StaticResource buttonImportant}" 
+                    Command="{Binding OnSignInCommand}" 
+                    HorizontalOptions="Center"/>
             </StackLayout>
         </StackLayout>
     </ContentView>

@@ -7,6 +7,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using KRG_SES_APP.Models.SignInSystem;
 using KRG_SES_APP.Services;
+using KRG_SES_APP.Models.AccountSystem;
+using KRG_SES_APP.ViewModels;
 
 namespace KRG_SES_APP
 {
@@ -21,8 +23,8 @@ namespace KRG_SES_APP
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new HomePage());
+            var auth = new AuthenticationService();
+            MainPage = new NavigationPage(new HomePage(auth, new PageService()));
         }
 
         protected override void OnStart()

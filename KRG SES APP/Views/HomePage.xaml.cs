@@ -1,4 +1,8 @@
-﻿using System;
+﻿using KRG_SES_APP.Extensions;
+using KRG_SES_APP.Models.LoginSystem;
+using KRG_SES_APP.Services;
+using KRG_SES_APP.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,53 +16,24 @@ namespace KRG_SES_APP.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        public string WelcomeText => $"Welcome {(Application.Current as App).UserProfile.FirstName}!";
+        AuthenticationService authenticationService;
+        IPageService pageService;
 
-        public HomePage()
+        public HomePage(AuthenticationService authenticationService, IPageService pageService)
         {
+            this.authenticationService = authenticationService;
+            this.pageService = pageService;
+
+            BindingContext = new HomePageViewModel(authenticationService, pageService);
+
             InitializeComponent();
-
-            BindingContext = this;
         }
 
-        private async void OnAvailabilityButtonClicked(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
-            await Navigation.PushAsync(new NavigationPage(new AvailabilityPage()));
-        }
+            base.OnAppearing();
 
-        private async void OnAccountButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NavigationPage(new AccountPage()));
-        }
-
-        private async void OnMessagesButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NavigationPage(new MessagesPage()));
-        }
-
-        private async void OnSettingsButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NavigationPage(new SettingsPage()));
-        }
-        
-        private async void OnSignInButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NavigationPage(new SignInPage()));
-        }
-
-        private async void OnLinksButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NavigationPage(new SignInPage()));
-        }
-
-        private async void OnCreditsButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NavigationPage(new Credits()));
-        }
-
-        private async void OnReportBugsButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NavigationPage(new SignInPage()));
+            await (BindingContext as HomePageViewModel).OnAppearing();
         }
 
         protected override bool OnBackButtonPressed()

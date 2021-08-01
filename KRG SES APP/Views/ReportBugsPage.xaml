@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KRG_SES_APP.Views.ReportBugsPage"             
+             Style="{StaticResource standardContentPage}">
+
+    <ContentView 
+        Style="{StaticResource standardContentView}">
+        <StackLayout>
+            <Label Text="Report Bugs" Style="{StaticResource pageHeaderLabel}" VerticalOptions="Start"/>
+            <StackLayout>
+                <Editor x:Name="EditorHeader" Placeholder="Enter Title" MaxLength="255"/>
+                <Picker x:Name="PickerCatagory" Title="Priority">
+                    <Picker.Items>
+                        <x:String>Low</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>High</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Editor x:Name="EditorBody" Placeholder="Enter Description" MaxLength="1000"/>
+                <Button Text="Submit" Clicked="OnSubmit"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView>
+</ContentPage>

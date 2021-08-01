@@ -28,8 +28,8 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                 </Grid>
-                <Editor Placeholder="General Comments" VerticalOptions="FillAndExpand"/>
-                <Button Text="Submit" Style="{StaticResource buttonImportant}"/>
+                <Editor x:Name="GeneralComments" Placeholder="General Comments" VerticalOptions="FillAndExpand"/>
+                <Button Text="Submit" Style="{StaticResource buttonImportant}" Clicked="OnSubmit"/>
             </StackLayout>
         </StackLayout>
     </ContentView>

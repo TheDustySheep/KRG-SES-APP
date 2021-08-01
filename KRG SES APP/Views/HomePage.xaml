@@ -25,59 +25,67 @@
 
             <Label 
                 x:Name="WelcomeNameLabel" 
-                Text="{Binding WelcomeText}"
+                Text="{Binding FirstName, StringFormat='Welcome {0}!'}}"
                 FontSize="Medium"
                 HorizontalOptions="Center"/>
 
             <Grid>
                 <Button 
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Text="Availability"
-                        Style="{StaticResource buttonImportant}"
-                        Clicked="OnAvailabilityButtonClicked"/>
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Availability"
+                    Style="{StaticResource buttonImportant}"
+                    Command="{Binding AvailabilityClickedCommand}"/>
                 <Button 
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Text="Sign In System"
-                        Style="{StaticResource buttonImportant}"
-                        Clicked="OnSignInButtonClicked"/>
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="Sign In System"
+                    Style="{StaticResource buttonImportant}"
+                    Command="{Binding SignInClickedCommand}"/>
                 <Button 
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Text="Messages"
-                        Style="{StaticResource buttonImportant}"
-                        Clicked="OnMessagesButtonClicked"/>
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Messages"
+                    Style="{StaticResource buttonImportant}"
+                    Command="{Binding MessagesClickedCommand}"/>
                 <Button 
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Text="Links"
-                        Style="{StaticResource buttonImportant}"
-                        Clicked="OnLinksButtonClicked"/>
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="Links"
+                    Style="{StaticResource buttonImportant}"
+                    Command="{Binding LinksClickedCommand}"/>
                 <Button 
-                        Grid.Row="2"
-                        Grid.Column="0"
-                        Text="Profile"
-                        Style="{StaticResource buttonStandard}"
-                        Clicked="OnAccountButtonClicked"/>
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Credits"
+                    Style="{StaticResource buttonStandard}"
+                    Command="{Binding CreditsClickedCommand}"/>
                 <Button 
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        Text="Settings"
-                        Style="{StaticResource buttonStandard}"
-                        Clicked="OnSettingsButtonClicked"/>
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="Profile"
+                    Style="{StaticResource buttonStandard}"                    
+                    Command="{Binding AccountClickedCommand}"/>
                 <Button 
-                        Grid.Row="3"
-                        Grid.Column="0"
-                        Text="Credits"
-                        Style="{StaticResource buttonStandard}"
-                        Clicked="OnCreditsButtonClicked"/>
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Text="Report Bugs"
+                    Style="{StaticResource buttonStandard}"
+                    Command="{Binding ReportBugsClickedCommand}"/>
                 <Button 
-                        Grid.Row="3"
-                        Grid.Column="1"
-                        Text="Report Bugs"
-                        Style="{StaticResource buttonStandard}"
-                        Clicked="OnReportBugsButtonClicked"/>
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Text="Settings"
+                    Style="{StaticResource buttonStandard}"
+                    Command="{Binding SettingsClickedCommand}"/>
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Text="Log Out"
+                    Style="{StaticResource buttonStandard}"
+                    Command="{Binding LogOutClickedCommand}"/>
+
             </Grid>
         </StackLayout>
     </ContentView>

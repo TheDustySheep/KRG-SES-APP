@@ -9,7 +9,7 @@
         Style="{StaticResource standardContentView}">
 
         <StackLayout VerticalOptions="Fill" Spacing="50">
-            <Label Text="Availability" Style="{StaticResource pageHeaderLabel}"/>
+            <Label Text="Messages" Style="{StaticResource pageHeaderLabel}"/>
             <ListView x:Name="listView" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>

@@ -10,37 +10,43 @@ using Microsoft.Data.SqlClient;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using KRG_SES_APP.Extensions;
+using System.Timers;
+using KRG_SES_APP.ViewModels;
 
 namespace KRG_SES_APP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignInPage : ContentPage
     {
-        public SignInPage()
+        private readonly Catagory[] Catagories =
         {
+            new Catagory() { Name = "Jobs" },
+            new Catagory() { Name = "Training" },
+            new Catagory() { Name = "Maintenance" },
+            new Catagory() { Name = "Out Of Area" },
+            new Catagory() { Name = "Administration" },
+            new Catagory() { Name = "Social" },
+        };
+
+        public SignInPage(AuthenticationService auth)
+        {
+            BindingContext = new SignInPageViewModel(new SignOnService(auth), new PageService());
+
             InitializeComponent();
 
-            BindingContext = this;
+            foreach (var cat in GetSignInCatagories())
+            {
+                SignInCatagoryPicker.Items.Add(cat.Name);
+            }
         }
 
-        private async void OnSignOut(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
-            await DisplayAlert("Signed Out", $"Successfully Signed Out", "Continue");
-
-            await Navigation.PopAsync();
+            await (BindingContext as SignInPageViewModel).Initilize();
+            base.OnAppearing();
         }
 
-        private async void OnSignIn(object sender, EventArgs e)
-        {
-            var attendance = new CurrentAttendance() { Catagory = "Jobs", MemberID = 40040170 };
-
-            await FirestoreTools.AddDocument(attendance);
-
-            await DisplayAlert("Signed In", $"Successfully Signed In", "Continue");
-        }
-
-        private void OnRefresh(object sender, EventArgs e)
-        {
-        }
+        private IList<Catagory> GetSignInCatagories() => Catagories;
     }
 }

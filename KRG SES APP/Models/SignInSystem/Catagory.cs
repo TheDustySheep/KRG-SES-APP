@@ -4,9 +4,8 @@ using System.Text;
 
 namespace KRG_SES_APP.Models.SignInSystem
 {
-    public class AttendanceCatagory
+    public class Catagory
     {
-        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

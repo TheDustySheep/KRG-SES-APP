@@ -35,6 +35,13 @@
                 <Setter Property="FontSize" Value="Large"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
             </Style>
+
+            <Color x:Key="colourWhite">White</Color>
+            <Color x:Key="colourLight">#F6F5F5</Color>
+            <Color x:Key="colourLightBlue">#D3E0EA</Color>
+            <Color x:Key="colourBlue">#1687A7</Color>
+            <Color x:Key="colourDarkBlue">#276678</Color>
+            <Color x:Key="colourBlack">Black</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
