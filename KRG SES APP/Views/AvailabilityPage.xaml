@@ -29,7 +29,7 @@
                     </Grid.RowDefinitions>
                 </Grid>
                 <Editor x:Name="GeneralComments" Placeholder="General Comments" VerticalOptions="FillAndExpand"/>
-                <Button Text="Submit" Style="{StaticResource buttonImportant}" Clicked="OnSubmit"/>
+                <Button Text="Submit" Style="{StaticResource buttonImportant}" Command="{Binding OnSubmitCommand}"/>
             </StackLayout>
         </StackLayout>
     </ContentView>

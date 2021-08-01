@@ -6,6 +6,8 @@
 
     <ContentView 
         Style="{StaticResource standardContentView}">
-        
+        <StackLayout>
+            <Label Text="Links" Style="{StaticResource pageHeaderLabel}"/>
+        </StackLayout>
     </ContentView>
 </ContentPage>

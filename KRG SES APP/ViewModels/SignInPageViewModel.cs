@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -24,6 +25,13 @@ namespace KRG_SES_APP.ViewModels
         {
             get => _isLoggedIn;
             set => SetValue(ref _isLoggedIn, value);
+        }
+
+        private bool _isLoggedOut;
+        public bool IsLoggedOut
+        {
+            get => _isLoggedOut;
+            set => SetValue(ref _isLoggedOut, value);
         }
 
         private bool _signOnEnable;
@@ -67,15 +75,25 @@ namespace KRG_SES_APP.ViewModels
 
         IPageService pageService;
         SignOnService signOnService;
+        DateTime lastLoggedTime;
+
         public SignInPageViewModel(SignOnService signOnService, IPageService pageService)
         {
             this.pageService = pageService;
             this.signOnService = signOnService;
 
-            signOnService.OnCurrentAttendanceChange += OnAttendanceChange;
+            signOnService.OnCurrentAttendanceChange += OnAttendanceUpdate;
 
             OnSignInCommand = new Command(SignIn);
             OnSignOutCommand = new Command(SignOut);
+
+            IsLoggedOut = false;
+            IsLoggedIn = false;
+
+            Timer timer = new Timer(1000);
+            timer.Elapsed += UpdateTimeSpan;
+            timer.AutoReset = true;
+            timer.Enabled = true;
         }
 
         public async Task Initilize()
@@ -107,18 +125,26 @@ namespace KRG_SES_APP.ViewModels
             await pageService.PopAsync();
         }
 
-        private void OnAttendanceChange(CurrentAttendance attendance)
+        private void OnAttendanceUpdate(CurrentAttendance attendance)
         {
-            if (attendance == null)
+            IsLoggedIn = attendance != null;
+            IsLoggedOut = !IsLoggedIn;
+
+            if (IsLoggedOut)
                 return;
 
-            DateTime signedInTime = attendance.StartTime;
-            SignedInTimeString = string.Format("{0:hh:mm:ss tt}", signedInTime.ToLocalTime());
-            
-            TimeSpan signedInTimeSpan = DateTime.UtcNow.Subtract(attendance.StartTime);
-            SignedInTimeSpanString = signedInTimeSpan.ToString(@"hh\:mm");
+            lastLoggedTime = attendance.StartTime;
+            SignedInTimeString = string.Format("{0:hh:mm:ss tt}", lastLoggedTime.ToLocalTime());
+
+            UpdateTimeSpan();
 
             SignedInCatagoryString = attendance.Catagory;
+        }
+
+        private void UpdateTimeSpan(object sender = null, ElapsedEventArgs args = null)
+        {
+            TimeSpan signedInTimeSpan = DateTime.UtcNow.Subtract(lastLoggedTime);
+            SignedInTimeSpanString = $"{Math.Floor(signedInTimeSpan.TotalHours)}h {signedInTimeSpan.Minutes}m {signedInTimeSpan.Seconds}s";
         }
     }
 }

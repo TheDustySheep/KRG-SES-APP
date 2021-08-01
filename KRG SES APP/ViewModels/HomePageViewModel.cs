@@ -55,11 +55,13 @@ namespace KRG_SES_APP.ViewModels
             {
                 await pageService.PushModalAsync(new LoginPage(authenticationService));
             }
+
+            FirstName = (await authenticationService.GetLogInInfo()).MemberNumber.ToString();
         }
 
         private async void OnAvailability()
         {
-            await pageService.PushAsync(new AvailabilityPage());
+            await pageService.PushAsync(new AvailabilityPage(authenticationService, pageService));
         }
 
         private async void OnAccount()
@@ -94,7 +96,7 @@ namespace KRG_SES_APP.ViewModels
 
         private async void OnReportBugsButtonClicked()
         {
-            await pageService.PushAsync(new ReportBugsPage());
+            await pageService.PushAsync(new ReportBugsPage(pageService));
         }
 
         private async void OnLogOut()

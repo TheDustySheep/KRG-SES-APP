@@ -16,14 +16,8 @@ namespace KRG_SES_APP.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        AuthenticationService authenticationService;
-        IPageService pageService;
-
         public HomePage(AuthenticationService authenticationService, IPageService pageService)
         {
-            this.authenticationService = authenticationService;
-            this.pageService = pageService;
-
             BindingContext = new HomePageViewModel(authenticationService, pageService);
 
             InitializeComponent();

@@ -1,6 +1,7 @@
 ﻿using KRG_SES_APP.Extensions;
 using KRG_SES_APP.Models.AvailabilitySystem;
 using KRG_SES_APP.Services;
+using KRG_SES_APP.ViewModels;
 using Plugin.CloudFirestore;
 using System;
 using System.Collections.Generic;
@@ -16,14 +17,13 @@ namespace KRG_SES_APP.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AvailabilityPage : ContentPage
     {
-        private static readonly string AvailabilityCollection = "weeklyavailability";
-        private static readonly string MemberID = "40040170";
-
         AvailabilityModel model;
 
-        public AvailabilityPage()
+        public AvailabilityPage(AuthenticationService auth, IPageService pageService)
         {
             model = new AvailabilityModel();
+
+            BindingContext = new AvailabilityPageViewModel(model, auth, pageService);
 
             InitializeComponent();
 
@@ -70,21 +70,6 @@ namespace KRG_SES_APP.Views
             checkBox.CheckedChanged += (object sender, CheckedChangedEventArgs e) => onChange(e.Value);
 
             return checkBox;
-        }
-
-        private async void OnSubmit(object sender, EventArgs e)
-        {
-            await CrossCloudFirestore.Current
-                     .Instance
-                     .Collection(AvailabilityCollection)
-                     .Document("Availabilities")
-                     .Collection("Current Week")
-                     .Document(MemberID)
-                     .SetAsync(model);
-
-            await DisplayAlert("Successfully Submitted", "Submitted sucessfully", "Continue");
-
-            await NavigationExtensions.Navigation.PopAsync();
         }
     }
 }

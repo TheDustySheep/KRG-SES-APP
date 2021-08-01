@@ -10,12 +10,7 @@
         <StackLayout>
             <Label Text="Sign In System" Style="{StaticResource pageHeaderLabel}"/>
 
-            <StackLayout VerticalOptions="CenterAndExpand" IsEnabled="False">
-                <StackLayout.Triggers>
-                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsLoggedIn}" Value="False">
-                        <Setter Property="IsEnabled" Value="True"/>
-                    </DataTrigger>
-                </StackLayout.Triggers>
+            <StackLayout VerticalOptions="CenterAndExpand" IsVisible="{Binding IsLoggedOut}">
                 <Label FontSize="Large" Text="Currently Signed Out" HorizontalOptions="Center"/>
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <Picker x:Name="SignInCatagoryPicker"
@@ -30,7 +25,7 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout VerticalOptions="CenterAndExpand" IsEnabled="{Binding IsLoggedIn}">
+            <StackLayout VerticalOptions="CenterAndExpand" IsVisible="{Binding IsLoggedIn}">
                 <Label FontSize="Large" Text="Currently Signed In" HorizontalOptions="Center"/>
                 <Grid Margin="50, 0, 50, 0">
                     <Grid.RowDefinitions>
@@ -50,7 +45,7 @@
                 <Button
                     Text="Sign Out" 
                     Style="{StaticResource buttonImportant}" 
-                    Command="{Binding OnSignInCommand}" 
+                    Command="{Binding OnSignOutCommand}" 
                     HorizontalOptions="Center"/>
             </StackLayout>
         </StackLayout>

@@ -1,6 +1,7 @@
 ﻿using KRG_SES_APP.Extensions;
 using KRG_SES_APP.Models.BugReportingSystem;
 using KRG_SES_APP.Services;
+using KRG_SES_APP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,9 @@ namespace KRG_SES_APP.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ReportBugsPage : ContentPage
     {
-        public ReportBugsPage()
+        IPageService pageService;
+
+        public ReportBugsPage(IPageService pageService)
         {
             InitializeComponent();
         }
@@ -36,7 +39,7 @@ namespace KRG_SES_APP.Views
                 "Thank you for helping to find bugs :)\nYour effort is really appreciated!", 
                 "Continue");
 
-            await NavigationExtensions.Navigation.PopAsync();
+            await pageService.PopAsync();
         }
     }
 }
