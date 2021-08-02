@@ -139,9 +139,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\KRG SES APP\KRG SES APP.csproj">
-      <Project>{DC988D2C-4E24-43FD-B50B-99CF647BF979}</Project>
-      <Name>KRG SES APP</Name>
+    <ProjectReference Include="..\KRG SES APP\KRGSESAPP.csproj">
+      <Project>{187B5F74-A4C6-4FC3-A9D9-7029482F6AC9}</Project>
+      <Name>KRGSESAPP</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

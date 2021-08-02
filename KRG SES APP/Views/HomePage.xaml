@@ -1,92 +1,124 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="KRG_SES_APP.Views.HomePage"
-             Style="{StaticResource standardContentPage}">
-
-    <ContentView 
-        Style="{StaticResource standardContentView}">
-        <StackLayout 
-            VerticalOptions="CenterAndExpand"
-            HorizontalOptions="CenterAndExpand"
-            Spacing="20">
-
-            <StackLayout
-                HorizontalOptions="CenterAndExpand"
-                Spacing="20">
-                <Label 
-                        FontSize="Large" 
-                        Text="Ku-Ring-Gai SES"/>
-                <Image 
-                        Source="https://d2kkk21akmg8gz.cloudfront.net/images/icons/ses-logo.png"
-                        BackgroundColor="White"
-                        Opacity="100"/>
-            </StackLayout>
-
-            <Label 
-                x:Name="WelcomeNameLabel" 
-                Text="{Binding FirstName, StringFormat='Welcome {0}!'}}"
-                FontSize="Medium"
-                HorizontalOptions="Center"/>
-
-            <Grid>
-                <Button 
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="Availability"
-                    Style="{StaticResource buttonImportant}"
-                    Command="{Binding AvailabilityClickedCommand}"/>
-                <Button 
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Text="Sign In System"
-                    Style="{StaticResource buttonImportant}"
-                    Command="{Binding SignInClickedCommand}"/>
-                <Button 
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Text="Messages"
-                    Style="{StaticResource buttonImportant}"
-                    Command="{Binding MessagesClickedCommand}"/>
-                <Button 
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Text="Links"
-                    Style="{StaticResource buttonImportant}"
-                    Command="{Binding LinksClickedCommand}"/>
-                <Button 
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Text="Credits"
-                    Style="{StaticResource buttonStandard}"
-                    Command="{Binding CreditsClickedCommand}"/>
-                <Button 
-                    Grid.Row="2"
-                    Grid.Column="1"
-                    Text="Profile"
-                    Style="{StaticResource buttonStandard}"                    
-                    Command="{Binding AccountClickedCommand}"/>
-                <Button 
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    Text="Report Bugs"
-                    Style="{StaticResource buttonStandard}"
-                    Command="{Binding ReportBugsClickedCommand}"/>
-                <Button 
-                    Grid.Row="3"
-                    Grid.Column="1"
-                    Text="Settings"
-                    Style="{StaticResource buttonStandard}"
-                    Command="{Binding SettingsClickedCommand}"/>
-                <Button
-                    Grid.Row="4"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Text="Log Out"
-                    Style="{StaticResource buttonStandard}"
-                    Command="{Binding LogOutClickedCommand}"/>
-
+             x:Class="KRGSESAPP.Views.HomePage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid
+        BackgroundColor="{StaticResource colourLight}">
+        <RelativeLayout>
+            <Grid
+                BackgroundColor="{StaticResource colourBlue}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=0.3}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}">
+                <Grid        
+                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.1}"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                        Type=RelativeToParent,
+                        Property=Width,
+                        Factor=0.1}">
+                    <Grid
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        Margin="0, 10, 0, 0"
+                        Scale="0.7">
+                        <Image Source="https://img.icons8.com/material/192/ffffff/exit.png"/>
+                        <Button Command="{Binding LogOutClickedCommand}"  BackgroundColor="Transparent"/>
+                    </Grid>
+                </Grid>
+                <StackLayout
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand">
+                    <Label HorizontalTextAlignment="Center" TextColor="White" Text="{Binding FullName}" FontSize="40"/>
+                    <Label HorizontalTextAlignment="Center" TextColor="White" Text="{Binding MemberNumberString}" FontSize="20"/>
+                </StackLayout>
             </Grid>
-        </StackLayout>
-    </ContentView>
+            <Grid
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=0.6}"
+                RelativeLayout.YConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=0.3}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}">
+                <ListView
+                    x:Name="listViewNotifications"
+                    Margin="20"
+                    HasUnevenRows="True"
+                    ItemTapped="listViewNotifications_ItemTapped"
+                    SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Margin="0, 2.5, 0, 2.5">
+                                    <BoxView
+                                        CornerRadius="20"
+                                        BackgroundColor="{StaticResource colourLightBlue}"/>
+                                    <StackLayout
+                                        Margin="6"
+                                        VerticalOptions="CenterAndExpand">
+                                        <Label FontSize="20" Text="{Binding Title}"/>
+                                        <Label FontSize="14" Text="{Binding Body}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=0.1}"
+                RelativeLayout.YConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=0.9}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}">
+                <BoxView BackgroundColor="{StaticResource colourDarkBlue}"/>
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="10">
+                    <Grid>
+                        <Image Source="https://img.icons8.com/material/192/ffffff/book-and-pencil.png"/>
+                        <Button Command="{Binding SignInClickedCommand}"  BackgroundColor="Transparent"/>
+                    </Grid>
+                    <Grid>
+                        <Image Source="https://img.icons8.com/material/192/ffffff/plus-1-week.png"/>
+                        <Button Command="{Binding AvailabilityClickedCommand}"  BackgroundColor="Transparent"/>
+                    </Grid>
+                    <Grid>
+                        <Image Source="https://img.icons8.com/material/192/ffffff/home--v5.png"/>
+                        <Button Command="{Binding HomeClickedCommand}"  BackgroundColor="Transparent"/>
+                    </Grid>
+                    <Grid>
+                        <Image Source="https://img.icons8.com/material/192/ffffff/user-male-circle--v1.png"/>
+                        <Button Command="{Binding AccountClickedCommand}"  BackgroundColor="Transparent"/>
+                    </Grid>
+                    <Grid>
+                        <Image Source="https://img.icons8.com/material-rounded/192/ffffff/settings.png"/>
+                        <Button Command="{Binding SettingsClickedCommand}" BackgroundColor="Transparent"/>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </RelativeLayout>
+    </Grid>
 </ContentPage>

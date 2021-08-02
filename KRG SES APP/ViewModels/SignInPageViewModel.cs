@@ -1,5 +1,5 @@
-﻿using KRG_SES_APP.Models.SignInSystem;
-using KRG_SES_APP.Services;
+﻿using KRGSESAPP.Models.SignInSystem;
+using KRGSESAPP.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +8,7 @@ using System.Timers;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace KRG_SES_APP.ViewModels
+namespace KRGSESAPP.ViewModels
 {
     public class SignInPageViewModel : BaseViewModel
     {

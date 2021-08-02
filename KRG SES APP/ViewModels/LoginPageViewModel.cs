@@ -1,5 +1,5 @@
-﻿using KRG_SES_APP.Models.LoginSystem;
-using KRG_SES_APP.Services;
+﻿using KRGSESAPP.Models.LoginSystem;
+using KRGSESAPP.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace KRG_SES_APP.ViewModels
+namespace KRGSESAPP.ViewModels
 {
     public class LoginPageViewModel : BaseViewModel
     {
         public ICommand SubmitCommand { get; private set; }
 
-        AuthenticationService authenticationService;
+        IAuthenticationService authenticationService;
         private IPageService pageService;
         private string _memberNumber;
         public string MemberNumber
@@ -22,7 +22,7 @@ namespace KRG_SES_APP.ViewModels
             set => SetValue(ref _memberNumber, value);
         }
 
-        public LoginPageViewModel(AuthenticationService authenticationService, IPageService pageService)
+        public LoginPageViewModel(IAuthenticationService authenticationService, IPageService pageService)
         {
             this.authenticationService = authenticationService;
             this.pageService = pageService;

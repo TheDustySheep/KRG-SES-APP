@@ -1,4 +1,4 @@
-﻿using KRG_SES_APP.Models.SignInSystem;
+﻿using KRGSESAPP.Models.SignInSystem;
 using Plugin.CloudFirestore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KRG_SES_APP.Services
+namespace KRGSESAPP.Services
 {
     public static class FirestoreTools
     {

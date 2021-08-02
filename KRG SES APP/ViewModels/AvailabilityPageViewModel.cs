@@ -1,5 +1,5 @@
-﻿using KRG_SES_APP.Models.AvailabilitySystem;
-using KRG_SES_APP.Services;
+﻿using KRGSESAPP.Models.AvailabilitySystem;
+using KRGSESAPP.Services;
 using Plugin.CloudFirestore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace KRG_SES_APP.ViewModels
+namespace KRGSESAPP.ViewModels
 {
     public class AvailabilityPageViewModel : BaseViewModel
     {
@@ -17,9 +17,9 @@ namespace KRG_SES_APP.ViewModels
         public AvailabilityModel model;
 
         IPageService pageService;
-        AuthenticationService auth;
+        IAuthenticationService auth;
 
-        public AvailabilityPageViewModel(AvailabilityModel model, AuthenticationService auth, IPageService pageService)
+        public AvailabilityPageViewModel(AvailabilityModel model, IAuthenticationService auth, IPageService pageService)
         {
             this.model = model;
             this.auth = auth;

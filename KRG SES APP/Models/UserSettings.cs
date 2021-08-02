@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KRG_SES_APP.Models
+namespace KRGSESAPP.Models
 {
     public class UserSettings
     {

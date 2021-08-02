@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KRGSESAPP.Views.OldHomePage"
+             Style="{StaticResource standardContentPage}">
+
+    <ContentView 
+        Style="{StaticResource standardContentView}">
+        <StackLayout 
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            Spacing="20">
+
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                Spacing="20">
+                <Label 
+                    FontSize="Large" 
+                    Text="Ku-Ring-Gai SES"/>
+                <Image 
+                    Source="https://d2kkk21akmg8gz.cloudfront.net/images/icons/ses-logo.png"
+                    BackgroundColor="White"
+                    Opacity="100"/>
+            </StackLayout>
+
+            <Label 
+                x:Name="WelcomeNameLabel" 
+                Text="{Binding FirstName, StringFormat='Welcome {0}!'}"
+                FontSize="Medium"
+                HorizontalOptions="Center"/>
+
+            <Grid>
+                <Button 
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Availability"
+                    Style="{StaticResource buttonImportant}"
+                    Command="{Binding AvailabilityClickedCommand}"/>
+                <Button 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="Sign In System"
+                    Style="{StaticResource buttonImportant}"
+                    Command="{Binding SignInClickedCommand}"/>
+                <Button 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Messages"
+                    Style="{StaticResource buttonImportant}"
+                    Command="{Binding MessagesClickedCommand}"/>
+                <Button 
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="Links"
+                    Style="{StaticResource buttonImportant}"
+                    Command="{Binding LinksClickedCommand}"/>
+                <Button 
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Credits"
+                    Style="{StaticResource buttonStandard}"
+                    Command="{Binding CreditsClickedCommand}"/>
+                <Button 
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="Profile"
+                    Style="{StaticResource buttonStandard}"                    
+                    Command="{Binding AccountClickedCommand}"/>
+                <Button 
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Text="Report Bugs"
+                    Style="{StaticResource buttonStandard}"
+                    Command="{Binding ReportBugsClickedCommand}"/>
+                <Button 
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Text="Settings"
+                    Style="{StaticResource buttonStandard}"
+                    Command="{Binding SettingsClickedCommand}"/>
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Text="Log Out"
+                    Style="{StaticResource buttonStandard}"
+                    Command="{Binding LogOutClickedCommand}"/>
+
+            </Grid>
+        </StackLayout>
+    </ContentView>
+</ContentPage>

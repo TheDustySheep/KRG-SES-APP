@@ -1,7 +1,7 @@
-﻿using KRG_SES_APP.Extensions;
-using KRG_SES_APP.Models.AvailabilitySystem;
-using KRG_SES_APP.Services;
-using KRG_SES_APP.ViewModels;
+﻿using KRGSESAPP.Extensions;
+using KRGSESAPP.Models.AvailabilitySystem;
+using KRGSESAPP.Services;
+using KRGSESAPP.ViewModels;
 using Plugin.CloudFirestore;
 using System;
 using System.Collections.Generic;
@@ -12,14 +12,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace KRG_SES_APP.Views
+namespace KRGSESAPP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AvailabilityPage : ContentPage
     {
         AvailabilityModel model;
 
-        public AvailabilityPage(AuthenticationService auth, IPageService pageService)
+        public AvailabilityPage(IAuthenticationService auth, IPageService pageService)
         {
             model = new AvailabilityModel();
 

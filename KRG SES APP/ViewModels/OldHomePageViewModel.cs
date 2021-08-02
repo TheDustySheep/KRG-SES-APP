@@ -9,45 +9,44 @@ using Xamarin.Forms;
 
 namespace KRGSESAPP.ViewModels
 {
-    public class HomePageViewModel : BaseViewModel
+    public class OldHomePageViewModel : BaseViewModel
     {
         #region Bindings
-        private string _fullName;
-        public string FullName
+        private string _firstName;
+        public string FirstName
         {
-            get => _fullName;
-            set => SetValue(ref _fullName, value);
+            get => _firstName;
+            set => SetValue(ref _firstName, value);
         }
 
-        private string _memberNumberString;
-        public string MemberNumberString
-        {
-            get => _memberNumberString;
-            set => SetValue(ref _memberNumberString, value);
-        }
-
-        public ICommand SignInClickedCommand { get; private set; }
         public ICommand AvailabilityClickedCommand { get; private set; }
-        public ICommand HomeClickedCommand { get; private set; }
         public ICommand AccountClickedCommand { get; private set; }
+        public ICommand MessagesClickedCommand { get; private set; }
         public ICommand SettingsClickedCommand { get; private set; }
+        public ICommand SignInClickedCommand { get; private set; }
+        public ICommand LinksClickedCommand { get; private set; }
+        public ICommand CreditsClickedCommand { get; private set; }
+        public ICommand ReportBugsClickedCommand { get; private set; }
         public ICommand LogOutClickedCommand { get; private set; }
         #endregion
 
         IAuthenticationService authenticationService;
         IPageService pageService;
 
-        public HomePageViewModel(IAuthenticationService authenticationService, IPageService pageService)
+        public OldHomePageViewModel(IAuthenticationService authenticationService, IPageService pageService)
         {
             this.pageService = pageService;
             this.authenticationService = authenticationService;
 
-            AvailabilityClickedCommand = new Command(OnAvailability);
-            AccountClickedCommand = new Command(OnAccount);
-            SettingsClickedCommand = new Command(OnSettingsButtonClicked);
-            SignInClickedCommand = new Command(OnSignInButtonClicked);
-            HomeClickedCommand = new Command(OnHomeButtonClicked);
-            LogOutClickedCommand = new Command(OnLogOut);
+            AvailabilityClickedCommand  = new Command(OnAvailability);
+            AccountClickedCommand       = new Command(OnAccount);
+            MessagesClickedCommand      = new Command(OnMessages);
+            SettingsClickedCommand      = new Command(OnSettingsButtonClicked);
+            SignInClickedCommand        = new Command(OnSignInButtonClicked);
+            LinksClickedCommand         = new Command(OnLinksButtonClicked);
+            CreditsClickedCommand       = new Command(OnCreditsButtonClicked);
+            ReportBugsClickedCommand    = new Command(OnReportBugsButtonClicked);
+            LogOutClickedCommand        = new Command(OnLogOut);
         }
 
         public async Task OnAppearing()
@@ -57,10 +56,7 @@ namespace KRGSESAPP.ViewModels
                 await pageService.PushModalAsync(new LoginPage(authenticationService));
             }
 
-            var loginInfo = await authenticationService.GetLogInInfo();
-
-            FullName = $"{loginInfo.FirstName} {loginInfo.LastName}";
-            MemberNumberString = loginInfo.MemberNumber.ToString();
+            FirstName = (await authenticationService.GetLogInInfo()).MemberNumber.ToString();
         }
 
         private async void OnAvailability()
@@ -101,11 +97,6 @@ namespace KRGSESAPP.ViewModels
         private async void OnReportBugsButtonClicked()
         {
             await pageService.PushAsync(new ReportBugsPage(pageService));
-        }
-
-        private async void OnHomeButtonClicked()
-        {
-            await pageService.PopToRootAsync();
         }
 
         private async void OnLogOut()

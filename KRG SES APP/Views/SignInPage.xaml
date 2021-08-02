@@ -1,33 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="KRG_SES_APP.Views.SignInPage"
-             NavigationPage.HasNavigationBar="False"
-             Style="{StaticResource standardContentPage}">
+             x:Class="KRGSESAPP.Views.SignInPage"
+             NavigationPage.HasNavigationBar="False">
 
-    <ContentView
-        Style="{StaticResource standardContentView}">
-        <StackLayout>
-            <Label Text="Sign In System" Style="{StaticResource pageHeaderLabel}"/>
-
-            <StackLayout VerticalOptions="CenterAndExpand" IsVisible="{Binding IsLoggedOut}">
+    <RelativeLayout
+            BackgroundColor="{StaticResource colourLight}">
+        <Grid
+            BackgroundColor="{StaticResource colourBlue}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.3}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1}">
+            <Grid        
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=0.1}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.1}">
+                <Grid
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    Margin="0, 10, 0, 0"
+                    Scale="0.7">
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid                
+            RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.4}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=0.75}"
+            RelativeLayout.XConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=0.125}">
+            
+            <BoxView 
+                BackgroundColor="{StaticResource colourLightBlue}"
+                CornerRadius ="10"/>
+            
+            <StackLayout 
+                VerticalOptions="CenterAndExpand" 
+                IsVisible="{Binding IsLoggedOut}"
+                Margin="10">
                 <Label FontSize="Large" Text="Currently Signed Out" HorizontalOptions="Center"/>
-                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                    <Picker x:Name="SignInCatagoryPicker"
-                        Title="Catagories" 
-                        HorizontalOptions="CenterAndExpand"
+                <Picker x:Name="SignInCatagoryPicker"
+                        Title="Select Catagory" 
+                        HorizontalTextAlignment="Center"
                         SelectedItem="{Binding SelectedCatagory, Mode=TwoWay}"/>
-                    <Button 
-                        Text="Sign In"     
-                        Style="{StaticResource buttonImportant}" 
-                        Command="{Binding OnSignInCommand}"
-                        HorizontalOptions="Center"/>
-                </StackLayout>
+                <Button 
+                    Text="Sign In"     
+                    Style="{StaticResource buttonImportant}" 
+                    Command="{Binding OnSignInCommand}"
+                    HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 
-            <StackLayout VerticalOptions="CenterAndExpand" IsVisible="{Binding IsLoggedIn}">
-                <Label FontSize="Large" Text="Currently Signed In" HorizontalOptions="Center"/>
-                <Grid Margin="50, 0, 50, 0">
+            <StackLayout 
+                VerticalOptions="CenterAndExpand" 
+                IsVisible="{Binding IsLoggedIn}"
+                Margin="10">
+                <Label 
+                    FontSize="Large" 
+                    Text="Currently Signed In" 
+                    HorizontalOptions="Center"/>
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -43,12 +91,11 @@
                     <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="End" Text="{Binding SignedInCatagoryString}"/>
                 </Grid>
                 <Button
-                    Text="Sign Out" 
+                    Text="Sign Out"
                     Style="{StaticResource buttonImportant}" 
                     Command="{Binding OnSignOutCommand}" 
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-        </StackLayout>
-    </ContentView>
-    
+        </Grid>
+    </RelativeLayout>
 </ContentPage>

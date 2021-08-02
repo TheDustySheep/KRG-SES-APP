@@ -1,4 +1,4 @@
-﻿using KRG_SES_APP.Models.LoginSystem;
+﻿using KRGSESAPP.Models.LoginSystem;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace KRG_SES_APP.Services
+namespace KRGSESAPP.Services
 {
-    public class AuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
         SQLiteAsyncConnection connection;
 

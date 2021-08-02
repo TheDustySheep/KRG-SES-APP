@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KRG_SES_APP.Models.SignInSystem
+namespace KRGSESAPP.Models.SignInSystem
 {
     public class CurrentAttendance
     {

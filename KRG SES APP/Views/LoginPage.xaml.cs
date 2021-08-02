@@ -1,5 +1,5 @@
-﻿using KRG_SES_APP.Services;
-using KRG_SES_APP.ViewModels;
+﻿using KRGSESAPP.Services;
+using KRGSESAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace KRG_SES_APP.Views
+namespace KRGSESAPP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        public LoginPage(AuthenticationService authenticationService)
+        public LoginPage(IAuthenticationService authenticationService)
         {
             BindingContext = new LoginPageViewModel(authenticationService, new PageService());
 

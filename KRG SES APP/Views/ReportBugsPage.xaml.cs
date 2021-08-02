@@ -1,7 +1,7 @@
-﻿using KRG_SES_APP.Extensions;
-using KRG_SES_APP.Models.BugReportingSystem;
-using KRG_SES_APP.Services;
-using KRG_SES_APP.ViewModels;
+﻿using KRGSESAPP.Extensions;
+using KRGSESAPP.Models.BugReportingSystem;
+using KRGSESAPP.Services;
+using KRGSESAPP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace KRG_SES_APP.Views
+namespace KRGSESAPP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ReportBugsPage : ContentPage

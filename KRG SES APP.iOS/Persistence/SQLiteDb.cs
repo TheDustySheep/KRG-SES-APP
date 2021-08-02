@@ -3,7 +3,7 @@ using System.IO;
 using SQLite;
 using Xamarin.Forms;
 using HelloWorld.iOS;
-using KRG_SES_APP.Services;
+using KRGSESAPP.Services;
 
 [assembly: Dependency(typeof(SQLiteDb))]
 

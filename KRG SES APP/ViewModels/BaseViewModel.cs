@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace KRG_SES_APP.ViewModels
+namespace KRGSESAPP.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

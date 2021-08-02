@@ -1,5 +1,5 @@
-﻿using KRG_SES_APP.Models.SignInSystem;
-using KRG_SES_APP.Services;
+﻿using KRGSESAPP.Models.SignInSystem;
+using KRGSESAPP.Services;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -10,11 +10,11 @@ using Microsoft.Data.SqlClient;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using KRG_SES_APP.Extensions;
+using KRGSESAPP.Extensions;
 using System.Timers;
-using KRG_SES_APP.ViewModels;
+using KRGSESAPP.ViewModels;
 
-namespace KRG_SES_APP.Views
+namespace KRGSESAPP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignInPage : ContentPage
@@ -29,7 +29,7 @@ namespace KRG_SES_APP.Views
             new Catagory() { Name = "Social" },
         };
 
-        public SignInPage(AuthenticationService auth)
+        public SignInPage(IAuthenticationService auth)
         {
             BindingContext = new SignInPageViewModel(new SignOnService(auth), new PageService());
 

@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace KRG_SES_APP.ViewModels
+namespace KRGSESAPP.ViewModels
 {
     public interface IPageService
     {

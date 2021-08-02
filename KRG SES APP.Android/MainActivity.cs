@@ -7,7 +7,7 @@ using Android.OS;
 using Firebase;
 using Firebase.Firestore;
 
-namespace KRG_SES_APP.Droid
+namespace KRGSESAPP.Droid
 {
     [Activity(Label = "KRG_SES_APP", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity

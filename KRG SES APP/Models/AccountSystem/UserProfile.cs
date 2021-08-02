@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KRG_SES_APP.Models.AccountSystem
+namespace KRGSESAPP.Models.AccountSystem
 {
     public class UserProfile
     {

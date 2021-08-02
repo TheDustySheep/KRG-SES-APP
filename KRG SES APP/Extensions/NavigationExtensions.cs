@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace KRG_SES_APP.Extensions
+namespace KRGSESAPP.Extensions
 {
     public static class NavigationExtensions
     {

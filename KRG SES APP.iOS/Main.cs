@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace KRG_SES_APP.iOS
+namespace KRGSESAPP.iOS
 {
     public class Application
     {

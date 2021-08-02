@@ -1,10 +1,10 @@
-﻿using KRG_SES_APP.Models.SignInSystem;
+﻿using KRGSESAPP.Models.SignInSystem;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KRG_SES_APP.Services
+namespace KRGSESAPP.Services
 {
     public class SignOnService
     {
@@ -13,7 +13,7 @@ namespace KRG_SES_APP.Services
         private readonly string HistoricalCollection = "historicalsignon";
         private readonly string CurrentCollection = "currentlysignedon";
 
-        AuthenticationService authenticationService;
+        IAuthenticationService authenticationService;
         CurrentAttendance _currentAttendance;
         CurrentAttendance currentAttendance
         {
@@ -25,7 +25,7 @@ namespace KRG_SES_APP.Services
             }
         }
 
-        public SignOnService(AuthenticationService authenticationService)
+        public SignOnService(IAuthenticationService authenticationService)
         {
             this.authenticationService = authenticationService;
         }

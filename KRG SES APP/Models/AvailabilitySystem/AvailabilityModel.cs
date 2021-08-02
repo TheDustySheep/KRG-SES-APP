@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KRG_SES_APP.Models.AvailabilitySystem
+namespace KRGSESAPP.Models.AvailabilitySystem
 {
     public class AvailabilityModel
     {

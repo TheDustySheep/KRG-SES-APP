@@ -1,16 +1,16 @@
-﻿using KRG_SES_APP.Models;
-using KRG_SES_APP.Views;
+﻿using KRGSESAPP.Models;
+using KRGSESAPP.Views;
 using PCLStorage;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using KRG_SES_APP.Models.SignInSystem;
-using KRG_SES_APP.Services;
-using KRG_SES_APP.Models.AccountSystem;
-using KRG_SES_APP.ViewModels;
+using KRGSESAPP.Models.SignInSystem;
+using KRGSESAPP.Services;
+using KRGSESAPP.Models.AccountSystem;
+using KRGSESAPP.ViewModels;
 
-namespace KRG_SES_APP
+namespace KRGSESAPP
 {
     public partial class App : Application
     {
@@ -23,8 +23,13 @@ namespace KRG_SES_APP
         public App()
         {
             InitializeComponent();
-            var auth = new AuthenticationService();
-            MainPage = new NavigationPage(new HomePage(auth, new PageService()));
+
+            IAuthenticationService auth = new AuthenticationService();
+            IPageService pageService = new PageService();
+
+            MainPage = new NavigationPage(new HomePage(auth, pageService));
+
+            //MainPage = new NavigationPage(new HomePage(auth, pageService));
         }
 
         protected override void OnStart()

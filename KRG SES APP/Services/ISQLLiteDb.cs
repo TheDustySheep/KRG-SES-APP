@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 
-namespace KRG_SES_APP.Services
+namespace KRGSESAPP.Services
 {
     public interface ISQLLiteDb
     {

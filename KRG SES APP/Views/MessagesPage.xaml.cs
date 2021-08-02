@@ -1,4 +1,4 @@
-﻿using KRG_SES_APP.Models.MessagingSystem;
+﻿using KRGSESAPP.Models.MessagingSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace KRG_SES_APP.Views
+namespace KRGSESAPP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MessagesPage : ContentPage
